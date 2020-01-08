@@ -26,8 +26,8 @@ build_script:
   - cmd: dotnet build %webApiIdentityServerIntegrationTest%
   
 test_script:
-  - cmd: dotnet test %webApiIdentityServerTest% /p:CollectCoverage=true /p:CoverletOutputFormat=json /p:CoverletOutput=../TestResults/TestResult.json
-  - cmd: dotnet test %webApiIdentityServerIntegrationTest% /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../TestResults/TestResult.xml /p:MergeWith=../TestResults/TestResult.json
+  - cmd: dotnet test %webApiIdentityServerTest% /p:CollectCoverage=true /p:CoverletOutputFormat=json /p:CoverletOutput=../../../../TestResults/TestResult.json
+  - cmd: dotnet test %webApiIdentityServerIntegrationTest% /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../../../../TestResults/TestResult.xml /p:MergeWith=../TestResults/TestResult.json
 
 on_finish:
   - cmd: dotnet-sonarscanner end /d:sonar.login=%token%
