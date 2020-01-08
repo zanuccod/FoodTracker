@@ -1,0 +1,35 @@
+﻿version: 1.0.{build}
+
+image: Visual Studio 2019
+
+# environment variables
+environment:
+  webApiIdentityServer: WebApi/Services/Identity/IdentityServer.API/IdentityServer.API.csproj
+  webApiIdentityServerTest: WebApi/Services/Identity/IdentityServer.API.Test/IdentityServer.API.Test.csproj
+  webApiIdentityServerIntegrationTest: WebApi/Services/Identity/IdentityServer.API.IntegrationTest/IdentityServer.API.IntegrationTest.csproj
+
+  token:
+    secure: 9uRVSSCcR5LJnvA8wH/AU0w0g3HYu90HhhqxUMuzWbmPlxhyLQC4rGPAGiVV0kYZ
+
+init:
+  - cmd: dotnet tool install -g dotnet-sonarscanner
+
+install:
+before_build:
+  - cmd: dotnet --version
+  - cmd: nuget restore
+  - cmd: dotnet-sonarscanner begin /k:"zanuccod_FoodTracker" /o:"zanuccod" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login=%token% /d:sonar.cs.opencover.reportsPaths="TestResults/TestResult.xml"
+  
+build_script:
+  - cmd: dotnet build %webApiIdentityServer%
+  - cmd: dotnet build %webApiIdentityServerTest%
+  - cmd: dotnet build %webApiIdentityServerIntegrationTest%
+  
+test_script:
+  - cmd: dotnet test %webApiIdentityServerTest% /p:CollectCoverage=true /p:CoverletOutputFormat=json /p:CoverletOutput=../TestResults/TestResult.json
+  - cmd: dotnet test %webApiIdentityServerIntegrationTest% /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../TestResults/TestResult.xml /p:MergeWith=../TestResults/TestResult.json
+
+on_finish:
+  - cmd: dotnet-sonarscanner end /d:sonar.login=%token%
+  
+deploy: off
