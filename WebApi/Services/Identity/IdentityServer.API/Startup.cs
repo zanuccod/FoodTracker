@@ -46,7 +46,7 @@ namespace IdentityServer.API
 
         public virtual void ConfigureDatabaseServices(IServiceCollection services)
         {
-            services.AddSingleton<IUserDataModel, EFUserDataModel>();
+            services.AddSingleton<IUserDataModel, EfUserDataModel>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

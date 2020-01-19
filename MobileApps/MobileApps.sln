@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{95302EF7-385A-4764-9B2B-47809B1F245E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common\Common.csproj", "{E87AE89E-1F67-4810-B0C9-1B7E2868A641}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Droid", "Droid", "{45D6C246-CE3E-4EDD-BA0F-D303CE1F2AC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodTracker.Droid", "Droid\FoodTracker.Droid\FoodTracker.Droid.csproj", "{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E87AE89E-1F67-4810-B0C9-1B7E2868A641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87AE89E-1F67-4810-B0C9-1B7E2868A641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87AE89E-1F67-4810-B0C9-1B7E2868A641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87AE89E-1F67-4810-B0C9-1B7E2868A641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E87AE89E-1F67-4810-B0C9-1B7E2868A641} = {95302EF7-385A-4764-9B2B-47809B1F245E}
+		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC} = {45D6C246-CE3E-4EDD-BA0F-D303CE1F2AC8}
+	EndGlobalSection
+EndGlobal

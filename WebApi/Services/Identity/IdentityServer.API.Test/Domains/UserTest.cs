@@ -37,10 +37,10 @@ namespace IdentityServer.API.Test.Domains
         {
             // Arrange
             var user = new User { Username = "username_test", Password = "psw_test" };
-            var user_1 = new User { Username = "username_test", Password = "psw_test" };
+            var user1 = new User { Username = "username_test", Password = "psw_test" };
 
             // Act
-            var result = user.Equals(user_1);
+            var result = user.Equals(user1);
 
             // Assert
             Assert.IsTrue(result);
@@ -51,10 +51,10 @@ namespace IdentityServer.API.Test.Domains
         {
             // Arrange
             var user = new User { Username = "username_test", Password = "psw_test" };
-            var user_1 = new User { Username = "username_test_1", Password = "psw_test_1" };
+            var user1 = new User { Username = "username_test_1", Password = "psw_test_1" };
 
             // Act
-            var result = user.Equals(user_1);
+            var result = user.Equals(user1);
 
             // Assert
             Assert.IsFalse(result);

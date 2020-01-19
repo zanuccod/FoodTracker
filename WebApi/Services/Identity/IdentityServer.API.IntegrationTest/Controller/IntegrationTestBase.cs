@@ -13,29 +13,29 @@ namespace IdentityServer.API.IntegrationTest.Controller
 {
     public class IntegrationTestBase : IDisposable
     {
-        private readonly TestServer _server;
-        protected readonly HttpClient _client;
+        private readonly TestServer server;
+        protected readonly HttpClient Client;
 
-        protected const string serverBaseAddress = "https://localhost:5001";
-        protected readonly string requestTokenAddress = string.Join("/", serverBaseAddress, "connect/token");
+        protected const string ServerBaseAddress = "https://localhost:5001";
+        private readonly string requestTokenAddress = string.Join("/", ServerBaseAddress, "connect/token");
 
-        public IntegrationTestBase()
+        protected IntegrationTestBase()
         {
-            _server = new TestServer(WebHost.CreateDefaultBuilder()
+            server = new TestServer(WebHost.CreateDefaultBuilder()
                 .UseEnvironment("Development")
                 .UseStartup<TestStartup>());
-            _client = _server.CreateClient();
+            Client = server.CreateClient();
         }
 
         public void Dispose()
         {
-            _client.Dispose();
-            _server.Dispose();
+            Client.Dispose();
+            server.Dispose();
         }
 
         protected async Task<TokenResponse> RequestToken(string username, string password, string scope)
         {
-            return await _client.RequestPasswordTokenAsync(new PasswordTokenRequest
+            return await Client.RequestPasswordTokenAsync(new PasswordTokenRequest
             {
                 Address = requestTokenAddress,
                 GrantType = GrantTypes.ResourceOwnerPassword.First(),

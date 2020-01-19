@@ -5,18 +5,18 @@ using IdentityServer.API.Domains;
 
 namespace IdentityServer.API.Models
 {
-    public class EFUserDataModel : EFDataContext, IUserDataModel
+    public class EfUserDataModel : EfDataContext, IUserDataModel
     {
         private readonly DbContextOptions options;
 
         #region Constructors
 
-        public EFUserDataModel()
+        public EfUserDataModel()
         {
             options = new DbContextOptionsBuilder().Options;
         }
 
-        public EFUserDataModel(DbContextOptions options)
+        public EfUserDataModel(DbContextOptions options)
             :base(options)
         {
             this.options = options;
@@ -28,33 +28,33 @@ namespace IdentityServer.API.Models
 
         public async Task<List<User>> GetUsersListAsync()
         {
-            using var db = new EFDataContext(options);
+            using var db = new EfDataContext(options);
             return await db.Users.ToListAsync().ConfigureAwait(true);
         }
 
         public async Task<User> GetUserAsync(string username)
         {
-            using var db = new EFDataContext(options);
+            using var db = new EfDataContext(options);
             return await db.Users.FindAsync(username).ConfigureAwait(true);
         }
 
         public async Task InsertUserAsync(User item)
         {
-            using var db = new EFDataContext(options);
+            using var db = new EfDataContext(options);
             await db.Users.AddAsync(item);
             await db.SaveChangesAsync().ConfigureAwait(true);
         }
 
         public async Task UpdateUserAsync(User item)
         {
-            using var db = new EFDataContext(options);
+            using var db = new EfDataContext(options);
             db.Users.Update(item);
             await db.SaveChangesAsync().ConfigureAwait(true);
         }
 
         public async Task DeleteUserAsync(string username)
         {
-            using var db = new EFDataContext(options);
+            using var db = new EfDataContext(options);
             var item = await db.Users.FindAsync(username);
             db.Users.Remove(item);
             await db.SaveChangesAsync().ConfigureAwait(true);

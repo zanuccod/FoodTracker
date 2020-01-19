@@ -8,9 +8,9 @@ using IdentityServer.API.Domains;
 namespace IdentityServer.API.Test.Models
 {
     [TestFixture]
-    public class EFUserDataModelTest
+    public class EfUserDataModelTest
     {
-        private EFUserDataModel dataModel;
+        private EfUserDataModel dataModel;
 
         [SetUp]
         public void BeforeEachTest()
@@ -18,7 +18,7 @@ namespace IdentityServer.API.Test.Models
             var options = new DbContextOptionsBuilder()
                             .UseInMemoryDatabase(Guid.NewGuid().ToString())
                             .Options;
-            dataModel = new EFUserDataModel(options);
+            dataModel = new EfUserDataModel(options);
         }
 
         [Test]

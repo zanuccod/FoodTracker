@@ -1,17 +1,16 @@
-﻿using System;
-using IdentityModel;
+﻿using IdentityModel;
 using IdentityServer.API.Domains;
 
 namespace IdentityServer.API.IntegrationTest
 {
     public static class PredefinedData
     {
-        public readonly static string Password = "demo";
+        private static readonly string password = "demo";
 
-        public readonly static User[] Profiles = {
-            new User { Username = "demo", Password = Password.ToSha256() },
-            new User { Username = "tester@test.com", Password = Password },
-            new User { Username = "author@test.com", Password = Password }
+        public static readonly User[] Profiles = {
+            new User { Username = "demo", Password = password.ToSha256() },
+            new User { Username = "tester@test.com", Password = password },
+            new User { Username = "author@test.com", Password = password }
         };
     }
 }

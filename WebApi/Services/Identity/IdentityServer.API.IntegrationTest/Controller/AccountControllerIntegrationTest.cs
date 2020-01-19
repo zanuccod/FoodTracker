@@ -17,7 +17,7 @@ namespace IdentityServer.API.IntegrationTest.Controller
         public async Task GetUsers_WithoutToken_ShouldReturnUnauthorized()
         {
             // Act
-            var response = await _client.GetAsync(string.Join("/", serverBaseAddress, "api/account/get-users"));
+            var response = await Client.GetAsync(string.Join("/", ServerBaseAddress, "api/account/get-users"));
 
             // Assert
             Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
@@ -28,10 +28,10 @@ namespace IdentityServer.API.IntegrationTest.Controller
         {
             // Arrange
             var identityServerResponse = await RequestToken("demo", "demo", IdentityServerConstants.LocalApi.ScopeName);
-            _client.SetBearerToken(identityServerResponse.AccessToken);
+            Client.SetBearerToken(identityServerResponse.AccessToken);
 
             // Act
-            var response = await _client.GetAsync(string.Join("/", serverBaseAddress, "api/account/get-users"));
+            var response = await Client.GetAsync(string.Join("/", ServerBaseAddress, "api/account/get-users"));
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -50,7 +50,7 @@ namespace IdentityServer.API.IntegrationTest.Controller
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             // Act
-            var response = await _client.PostAsync(string.Join("/", serverBaseAddress, "api/account/register-user"), content);
+            var response = await Client.PostAsync(string.Join("/", ServerBaseAddress, "api/account/register-user"), content);
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -60,7 +60,7 @@ namespace IdentityServer.API.IntegrationTest.Controller
         public async Task DeleteUser_WithoutToken_ShouldReturnUnauthorized()
         {
             // Act
-            var response = await _client.DeleteAsync(string.Join("/", serverBaseAddress, "api/account/delete-user", "demo"));
+            var response = await Client.DeleteAsync(string.Join("/", ServerBaseAddress, "api/account/delete-user", "demo"));
 
             // Assert
             Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
@@ -71,10 +71,10 @@ namespace IdentityServer.API.IntegrationTest.Controller
         {
             // Arrange
             var identityServerResponse = await RequestToken("demo", "demo", IdentityServerConstants.LocalApi.ScopeName);
-            _client.SetBearerToken(identityServerResponse.AccessToken);
+            Client.SetBearerToken(identityServerResponse.AccessToken);
 
             // Act
-            var response = await _client.DeleteAsync(string.Join("/", serverBaseAddress, "api/account/delete-user", "demo"));
+            var response = await Client.DeleteAsync(string.Join("/", ServerBaseAddress, "api/account/delete-user", "demo"));
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);

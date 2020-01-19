@@ -7,7 +7,6 @@ using IdentityServer.API.Models;
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 using System;
-using IdentityServer.API.Domains;
 using Microsoft.Extensions.Logging;
 
 namespace IdentityServer.API.Services
@@ -52,7 +51,7 @@ namespace IdentityServer.API.Services
                 else
                 {
                     // get subject from context (this was set ResourceOwnerPasswordValidator.ValidateAsync),
-                    var username = context.Subject.Claims.FirstOrDefault(x => x.Type == JwtClaimTypes.PreferredUserName).Value;
+                    var username = context.Subject.Claims.FirstOrDefault(x => x.Type == JwtClaimTypes.PreferredUserName)?.Value;
 
                     if (!string.IsNullOrEmpty(username))
                     {
@@ -89,7 +88,7 @@ namespace IdentityServer.API.Services
                 }
 
                 // get subject from context (set in ResourceOwnerPasswordValidator.ValidateAsync),
-                var userName = context?.Subject.Claims.FirstOrDefault(x => x.Type == JwtClaimTypes.PreferredUserName).Value;
+                var userName = context.Subject.Claims.FirstOrDefault(x => x.Type == JwtClaimTypes.PreferredUserName)?.Value;
 
                 if (!string.IsNullOrEmpty(userName))
                 {

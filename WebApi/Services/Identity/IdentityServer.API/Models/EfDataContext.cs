@@ -5,18 +5,18 @@ using System;
 
 namespace IdentityServer.API.Models
 {
-    public class EFDataContext : DbContext
+    public class EfDataContext : DbContext
     {
-        private const string databaseName = "dbEFData.db";
+        private const string DatabaseName = "dbEFData.db";
 
         #region Constructors
 
-        public EFDataContext()
+        public EfDataContext()
         {
             Init();
         }
 
-        public EFDataContext(DbContextOptions options)
+        public EfDataContext(DbContextOptions options)
             : base(options)
         {
             Init();
@@ -63,7 +63,7 @@ namespace IdentityServer.API.Models
                 Directory.CreateDirectory(dataDirPath);
 
                 // Specify that we will use sqlite and the path of the database here
-                optionsBuilder.UseSqlite($"Filename={Path.Combine(dataDirPath, databaseName)}");
+                optionsBuilder.UseSqlite($"Filename={Path.Combine(dataDirPath, DatabaseName)}");
             }
         }
 

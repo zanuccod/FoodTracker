@@ -19,7 +19,7 @@ namespace IdentityServer.API.IntegrationTest.Controller
             var options = new DbContextOptionsBuilder()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
-            services.AddSingleton<IUserDataModel>(new EFUserDataModel(options));
+            services.AddSingleton<IUserDataModel>(new EfUserDataModel(options));
 
             services.AddTransient<DatabaseSeeder>();
 
