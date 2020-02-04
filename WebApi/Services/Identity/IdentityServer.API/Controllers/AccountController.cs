@@ -47,7 +47,7 @@ namespace IdentityServer.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Conflict)]
-        public async Task<ActionResult> RegisterUser(User user)
+        public async Task<ActionResult<User>> RegisterUser(User user)
         {
             try
             {
@@ -64,11 +64,11 @@ namespace IdentityServer.API.Controllers
                     await userDataModel.InsertUserAsync(user).ConfigureAwait(true);
 
                     logger.LogDebug($"Response <{nameof(Ok)}>, User with username <{user.Username}> created");
-                    return Ok("User created");
+                    return Ok(user);
                 }
 
                 logger.LogDebug($"Response <{nameof(Conflict)}>>, User with username <{user.Username}> already exists");
-                return Conflict("User already exist");
+                return Conflict(user);
             }
             catch (Exception ex)
             {

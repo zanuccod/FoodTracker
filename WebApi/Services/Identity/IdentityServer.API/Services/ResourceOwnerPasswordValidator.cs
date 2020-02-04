@@ -34,7 +34,7 @@ namespace IdentityServer.API.Services
 
                 if (user != null)
                 {
-                    if (user.Password == context.Password)
+                    if (user.Password == context.Password.ToSha256())
                     {
                         var claims = new List<Claim>
                         {

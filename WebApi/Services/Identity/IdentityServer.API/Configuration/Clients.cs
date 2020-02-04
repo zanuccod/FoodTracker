@@ -16,13 +16,25 @@ namespace IdentityServer.API.Configuration
                 new Client
                 {
                     ClientId = "test_ClientId",
-                    ClientSecrets = { new Secret("test_client_key".Sha256()) },
+                    ClientSecrets = {new Secret("test_client_key".Sha256())},
                     AccessTokenType = AccessTokenType.Reference,
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AllowedScopes =
                     {
                         LocalApi.ScopeName,
                         "test_WebApi"
+                    }
+                },
+
+                new Client
+                {
+                    ClientId = "xamarin",
+                    ClientSecrets = { new Secret("xamarin_secret".Sha256()) },
+                    AccessTokenType = AccessTokenType.Reference,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowedScopes =
+                    {
+                        LocalApi.ScopeName
                     }
                 }
             };

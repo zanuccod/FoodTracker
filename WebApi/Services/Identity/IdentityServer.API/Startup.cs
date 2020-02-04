@@ -60,6 +60,9 @@ namespace IdentityServer.API
 
             app.UseAuthorization();
 
+            // to redirect HTTP requests to HTTPS
+            app.UseHttpsRedirection();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
