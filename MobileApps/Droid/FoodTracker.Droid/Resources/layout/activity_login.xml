@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+    android:paddingTop="@dimen/mtrl_toolbar_default_height">
+
+	<EditText
+		android:id="@+id/activity_login_text_username"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/text_margin"
+		android:inputType="text"
+		android:hint="@string/activity_login_username" />
+
+    <EditText
+        android:id="@+id/activity_login_text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:inputType="textPassword"
+        android:hint="@string/activity_login_password"/>
+
+    <Button
+        android:id="@+id/activity_login_btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/text_margin"
+        android:text="@string/activity_login_btn_longin"/>
+
+    <TextView
+        android:id="@+id/activity_login_btn_register_new_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:inputType="textPassword"
+        android:paddingTop="@dimen/item_touch_helper_swipe_escape_velocity"
+        android:textAlignment="center"
+        android:hint="@string/activity_login_register_new_user"/>
+</LinearLayout>

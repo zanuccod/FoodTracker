@@ -2,4 +2,14 @@
 <resources>
     <string name="app_name">FoodTracker.Droid</string>
     <string name="action_settings">Settings</string>
+
+    <string name="activity_login_username">Username</string>
+    <string name="activity_login_password">Password</string>
+    <string name="activity_login_btn_longin">Login</string>
+    <string name="activity_login_register_new_user">Register New User</string>
+
+    <string name="activity_register_user_username">Username</string>
+    <string name="activity_register_user_password">Password</string>
+    <string name="activity_register_user_btn_register">Register</string>
+
 </resources>

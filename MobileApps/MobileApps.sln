@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Droid", "Droid", "{45D6C246
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodTracker.Droid", "Droid\FoodTracker.Droid\FoodTracker.Droid.csproj", "{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Test", "Common\Common.Test\Common.Test.csproj", "{350146D4-C1F6-42FC-973D-D506642DFB47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,9 +25,14 @@ Global
 		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350146D4-C1F6-42FC-973D-D506642DFB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350146D4-C1F6-42FC-973D-D506642DFB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350146D4-C1F6-42FC-973D-D506642DFB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350146D4-C1F6-42FC-973D-D506642DFB47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E87AE89E-1F67-4810-B0C9-1B7E2868A641} = {95302EF7-385A-4764-9B2B-47809B1F245E}
 		{9ACC7189-AB8C-4A72-B171-9A0C63559EFC} = {45D6C246-CE3E-4EDD-BA0F-D303CE1F2AC8}
+		{350146D4-C1F6-42FC-973D-D506642DFB47} = {95302EF7-385A-4764-9B2B-47809B1F245E}
 	EndGlobalSection
 EndGlobal
