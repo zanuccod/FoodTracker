@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using IdentityModel;
 using IdentityModel.Client;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore;
@@ -45,7 +44,7 @@ namespace IdentityServer.API.IntegrationTest.Controller
                 Scope = scope,
 
                 UserName = username,
-                Password = password.ToSha256()
+                Password = password
             });
         }
     }

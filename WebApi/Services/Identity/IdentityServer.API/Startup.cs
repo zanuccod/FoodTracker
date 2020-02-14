@@ -1,3 +1,4 @@
+using IdentityServer.API.Certificates;
 using IdentityServer.API.Configuration;
 using IdentityServer.API.Models;
 using IdentityServer.API.Services;
@@ -31,6 +32,7 @@ namespace IdentityServer.API
 
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
+                //.AddSigningCredential(Certificate.Get())
                 .AddInMemoryIdentityResources(new IdentityResource[]
                     {
                         new IdentityResources.OpenId()

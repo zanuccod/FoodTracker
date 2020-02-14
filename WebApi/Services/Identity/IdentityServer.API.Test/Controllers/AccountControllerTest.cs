@@ -30,7 +30,7 @@ namespace IdentityServer.API.Test.Controllers
             var result = await controller.RegisterUser(null);
 
             // Assert
-            Assert.AreEqual(typeof(BadRequestObjectResult), result.GetType());
+            Assert.AreEqual(typeof(BadRequestObjectResult), result.Result.GetType());
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace IdentityServer.API.Test.Controllers
             var result = await controller.RegisterUser(new User());
 
             // Assert
-            Assert.AreEqual(typeof(ConflictObjectResult), result.GetType());
+            Assert.AreEqual(typeof(ConflictObjectResult), result.Result.GetType());
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace IdentityServer.API.Test.Controllers
             var result = await controller.RegisterUser(new User());
 
             // Assert
-            Assert.AreEqual(typeof(OkObjectResult), result.GetType());
+            Assert.AreEqual(typeof(OkObjectResult), result.Result.GetType());
         }
 
         [Test]
