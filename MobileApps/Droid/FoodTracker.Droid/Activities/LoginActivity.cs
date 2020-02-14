@@ -31,7 +31,7 @@ namespace FoodTracker.Droid
             _btnLogin = FindViewById<Button>(Resource.Id.activity_login_btn_login);
 
             _btnLogin.Click += BtnLogin_Click;
-            _btnRegisterNewUser.Click += _btnRegisterNewUser_Click;
+            _btnRegisterNewUser.Click += btnRegisterNewUser_Click;
         }
 
         protected override void OnDestroy()
@@ -39,7 +39,7 @@ namespace FoodTracker.Droid
             base.OnDestroy();
 
             _btnLogin.Click -= BtnLogin_Click;
-            _btnRegisterNewUser.Click -= _btnRegisterNewUser_Click;
+            _btnRegisterNewUser.Click -= btnRegisterNewUser_Click;
 
             _presenter.Dispose();
         }
@@ -52,7 +52,7 @@ namespace FoodTracker.Droid
             _presenter.LoginCommand.Execute(null);
         }
 
-        private void _btnRegisterNewUser_Click(object sender, System.EventArgs e)
+        private void btnRegisterNewUser_Click(object sender, System.EventArgs e)
         {
             _presenter.RegisterCommand.Execute(null);
         }

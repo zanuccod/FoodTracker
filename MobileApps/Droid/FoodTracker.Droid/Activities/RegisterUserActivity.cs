@@ -25,10 +25,10 @@ namespace FoodTracker.Droid.Activities
 
             _presenter = new RegisterUserPresenter(this);
 
-            _btnRegister.Click += _btnRegister_Click;
+            _btnRegister.Click += btnRegister_Click;
         }
 
-        private void _btnRegister_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
             _presenter.Username = _textUserName.Text;
             _presenter.Password = _textPassword.Text;
@@ -40,7 +40,7 @@ namespace FoodTracker.Droid.Activities
         {
             base.OnDestroy();
 
-            _btnRegister.Click -= _btnRegister_Click;
+            _btnRegister.Click -= btnRegister_Click;
             _presenter.Dispose();
         }
 

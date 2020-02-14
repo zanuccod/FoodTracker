@@ -31,7 +31,7 @@ namespace Common.Services.Identity
         public async Task<User> RegisterNewUser(string username, string password)
         {
             var user = new User { Username = username, Password = password };
-            return await _requestProvider.PostAsync(GlobalSettings.Instance.RegisterNewUsersEndpoint, user);
+            return await _requestProvider.PostAsync(GlobalSettings.Instance.RegisterNewUsersEndpoint, user).ConfigureAwait(true);
         }
     }
 }

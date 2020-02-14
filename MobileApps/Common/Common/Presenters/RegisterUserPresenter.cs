@@ -18,20 +18,24 @@ namespace Common.Presenters
         public string Password { get; set; }
         public Command RegisterCommand { get; }
 
-        public RegisterUserPresenter(IRegisterUserView view, IIdentityService identityService = null, ISettingsService settingsService = null)
+        public RegisterUserPresenter(IRegisterUserView view, IIdentityService identityService = null)
         {
             _view = view;
 
             _identityService = identityService ?? ServiceLocator.Provider.GetService<IIdentityService>();
 
             RegisterCommand = new Command(async () => await RegisterNewUser());
-
         }
 
         private async Task RegisterNewUser()
         {
             try
             {
+                if (IsBusy)
+                    return;
+
+                IsBusy = true;
+
                 if (string.IsNullOrEmpty(Username))
                 {
                     _view.ShowPopupMessage("Insert valid username");
@@ -50,6 +54,10 @@ namespace Common.Presenters
             catch (Exception ex)
             {
                 _view.ShowPopupMessage($"Failed to proceed with the login operation: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 

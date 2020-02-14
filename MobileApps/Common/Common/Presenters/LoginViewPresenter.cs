@@ -33,17 +33,29 @@ namespace Common.Presenters
 
         public void Dispose()
         {
+            Dispose();
         }
 
         private async Task Login()
         {
             try
             {
+                if (IsBusy)
+                {
+                    return;
+                }
+
+                IsBusy = true;
+
                 if (string.IsNullOrEmpty(Username))
+                {
                     _view.ShowPopupMessage("Insert valid username");
+                }
 
                 if (string.IsNullOrEmpty(Password))
+                {
                     _view.ShowPopupMessage("Insert valid password");
+                }
 
                 var userToken = await _identityService.GetTokenAsync(Username, Password).ConfigureAwait(true);
                 _settingsService.AuthAccessToken = userToken.AccessToken;
@@ -54,6 +66,10 @@ namespace Common.Presenters
             catch (Exception ex)
             {
                 _view.ShowPopupMessage($"Failed to proceed with the login operation: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 

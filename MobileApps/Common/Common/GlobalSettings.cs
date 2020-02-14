@@ -52,7 +52,7 @@ namespace Common
         private string ExtractBaseUri(string endpoint)
         {
             var uri = new Uri(endpoint);
-            var baseUri = uri.GetLeftPart(System.UriPartial.Authority);
+            var baseUri = uri.GetLeftPart(UriPartial.Authority);
 
             return baseUri;
         }
