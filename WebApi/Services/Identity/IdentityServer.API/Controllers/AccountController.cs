@@ -60,7 +60,6 @@ namespace IdentityServer.API.Controllers
                 var userExist = await userDataModel.GetUserAsync(user.Username).ConfigureAwait(true);
                 if (userExist == null)
                 {
-                    user.Password = user.Password.ToSha256();
                     await userDataModel.InsertUserAsync(user).ConfigureAwait(true);
 
                     logger.LogDebug($"Response <{nameof(Ok)}>, User with username <{user.Username}> created");
