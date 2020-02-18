@@ -53,6 +53,9 @@ namespace Meals.API.Models
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            if (modelBuilder == null)
+                return;
+
             // relationship between Meal and MealFoods
             modelBuilder.Entity<Meal>()
                         .HasMany(s => s.Foods)

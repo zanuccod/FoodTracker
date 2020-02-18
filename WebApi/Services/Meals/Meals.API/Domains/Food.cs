@@ -15,7 +15,7 @@ namespace Meals.API.Domains
         public string Description { get; set; }
 
         [NotMapped]
-        public List<MealFood> MealFoods { get; set; }
+        public List<MealFood> MealFoods { get; }
 
         public Food()
         {

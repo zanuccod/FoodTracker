@@ -23,7 +23,7 @@ namespace Meals.API.Domains
         public DateTime DateTime { get; set; }
 
         [NotMapped]
-        public List<MealFood> Foods { get; set; }
+        public List<MealFood> Foods { get; }
 
         #region Constructor
 

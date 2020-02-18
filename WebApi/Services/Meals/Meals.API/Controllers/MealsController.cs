@@ -98,7 +98,7 @@ namespace Meals.API.Controllers
                 var meal = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
                 if (meal != null)
                 {
-                    meal = await _mealDataModel.UpdateAsync(item);
+                    meal = await _mealDataModel.UpdateAsync(item).ConfigureAwait(true);
                     return Ok(id);
                 }
                 _logger.LogInformation($"Meal with id <{id}> not exist, create it.");
@@ -121,7 +121,7 @@ namespace Meals.API.Controllers
                 if (id < 0)
                     return BadRequest(id);
 
-                var item = await _mealDataModel.FindAsync(id);
+                var item = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
                 if (item != null)
                 {
                     await _mealDataModel.DeleteAsync(id).ConfigureAwait(true);
