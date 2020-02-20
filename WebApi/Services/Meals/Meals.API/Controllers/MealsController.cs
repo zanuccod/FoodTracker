@@ -49,7 +49,7 @@ namespace Meals.API.Controllers
         {
             try
             {
-                if (id < 0)
+                if (id < 1)
                     return BadRequest(id);
 
                 var meal = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
@@ -68,7 +68,7 @@ namespace Meals.API.Controllers
         [HttpPost("add-meal/{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<ActionResult> AddMeal(Meal item)
+        public async Task<ActionResult<Meal>> AddMeal(Meal item)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace Meals.API.Controllers
         [HttpPut("update-meal/{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<ActionResult> UpdateMeal(uint id, Meal item)
+        public async Task<ActionResult<Meal>> UpdateMeal(uint id, Meal item)
         {
             try
             {
@@ -114,11 +114,11 @@ namespace Meals.API.Controllers
         [HttpDelete("delete-meal/{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<ActionResult> DeleteMeal(uint id)
+        public async Task<ActionResult<Meal>> DeleteMeal(uint id)
         {
             try
             {
-                if (id < 0)
+                if (id < 1)
                     return BadRequest(id);
 
                 var item = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
