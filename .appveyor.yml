@@ -10,6 +10,7 @@ environment:
 
   webApiMeal: WebApi/Services/Meals/Meals.API/Meals.API.csproj
   webApiMealTest: WebApi/Services/Meals/Meals.API.Tests/Meals.API.Tests.csproj
+  webApiMealIntegrationTests: WebApi/Services/Meals/Meals.API.IntegrationTests/Meals.API.IntegrationTests.csproj
 
   token:
     secure: 9uRVSSCcR5LJnvA8wH/AU0w0g3HYu90HhhqxUMuzWbmPlxhyLQC4rGPAGiVV0kYZ
@@ -30,11 +31,13 @@ build_script:
 
   - cmd: dotnet build %webApiMeal%
   - cmd: dotnet build %webApiMealTest%
+  - cmd: dotnet build %webApiMealIntegrationTests%
   
 test_script:
   - cmd: dotnet test %webApiIdentityServerTest% /p:CollectCoverage=true /p:CoverletOutputFormat=json /p:CoverletOutput=../../../../TestResults/TestResult.json --test-adapter-path:. --logger:Appveyor
   - cmd: dotnet test %webApiIdentityServerIntegrationTest% /p:CollectCoverage=true /p:CoverletOutputFormat=json /p:CoverletOutput=../../../../TestResults/TestResult.json /p:MergeWith=../../../../TestResults/TestResult.json
-  - cmd: dotnet test %webApiMealTest% /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../../../../TestResults/TestResult.xml /p:MergeWith=../../../../TestResults/TestResult.json
+  - cmd: dotnet test %webApiMealTest% /p:CollectCoverage=true /p:CoverletOutputFormat=json /p:CoverletOutput=../../../../TestResults/TestResult.json /p:MergeWith=../../../../TestResults/TestResult.json
+  - cmd: dotnet test %webApiMealIntegrationTests% /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../../../../TestResults/TestResult.xml /p:MergeWith=../../../../TestResults/TestResult.json
 
 on_finish:
   - cmd: dotnet-sonarscanner end /d:sonar.login=%token%
