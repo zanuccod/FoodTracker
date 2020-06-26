@@ -9,8 +9,8 @@ namespace IdentityServer.API.IntegrationTest
 
         public static readonly User[] Profiles = {
             new User { Username = "demo", Password = password.ToSha256() },
-            new User { Username = "tester@test.com", Password = password },
-            new User { Username = "author@test.com", Password = password }
+            new User { Username = "tester@test.com", Password = password.ToSha256() },
+            new User { Username = "author@test.com", Password = password.ToSha256() }
         };
     }
 }

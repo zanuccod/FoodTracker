@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Meals.API.Controllers;
+using Meals.API.Domains;
 using Meals.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -43,5 +45,25 @@ namespace Meals.API.Tests.Controllers
             Assert.AreEqual(typeof(BadRequestObjectResult), result.Result.GetType());
         }
 
+        [TestCase(1, null)]
+        [TestCase(0, null)]
+        public async Task UpdateMeal_NullInputOrInvaildId_ShouldReturnBadRequest(int id, Meal item)
+        {
+            // Act
+            var result = await controller.UpdateMeal((uint) id, item);
+
+            // Assert
+            Assert.AreEqual(typeof(BadRequestObjectResult), result.Result.GetType());
+        }
+
+        [Test]
+        public async Task DeleteMeal_ZeroAsId_ShouldReturnBadRequest()
+        {
+            // Act
+            var result = await controller.DeleteMeal(0);
+
+            // Assert
+            Assert.AreEqual(typeof(BadRequestObjectResult), result.Result.GetType());
+        }
     }
 }

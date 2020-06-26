@@ -6,8 +6,8 @@ namespace Meals.API.Domains
 {
     public enum MeasureUnit
     {
-        g,
-        l
+        gram,
+        liter
     }
 
     public class MealFood : IEquatable<MealFood>

@@ -122,7 +122,7 @@ namespace Meals.API.Tests.Models
             {
                 Id = id,
                 Quantity = 200,
-                Unit = MeasureUnit.g,
+                Unit = MeasureUnit.gram,
             };
         }
     }

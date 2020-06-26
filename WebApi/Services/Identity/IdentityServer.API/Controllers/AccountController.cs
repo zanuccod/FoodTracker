@@ -47,6 +47,7 @@ namespace IdentityServer.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Conflict)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Non passare valori letterali come parametri localizzati", Justification = "<In sospeso>")]
         public async Task<ActionResult<User>> RegisterUser(User user)
         {
             try
@@ -81,6 +82,7 @@ namespace IdentityServer.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Non passare valori letterali come parametri localizzati", Justification = "<In sospeso>")]
         public async Task<ActionResult> DeleteUser(string username)
         {
             try

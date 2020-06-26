@@ -4,14 +4,12 @@ using System.Net;
 using System.Threading.Tasks;
 using Meals.API.Domains;
 using Meals.API.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Meals.API.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
     public class MealsController : ControllerBase
     {
@@ -65,7 +63,7 @@ namespace Meals.API.Controllers
             }
         }
 
-        [HttpPost("add-meal/{id}")]
+        [HttpPost("add-meal")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<Meal>> AddMeal(Meal item)
@@ -92,7 +90,7 @@ namespace Meals.API.Controllers
         {
             try
             {
-                if (id < 0 || item == null)
+                if (id < 1 || item == null)
                     return BadRequest(id);
 
                 var meal = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
