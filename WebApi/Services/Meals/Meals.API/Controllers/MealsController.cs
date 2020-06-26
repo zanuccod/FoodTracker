@@ -48,11 +48,15 @@ namespace Meals.API.Controllers
             try
             {
                 if (id < 1)
+                {
                     return BadRequest(id);
+                }
 
                 var meal = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
                 if (meal != null)
+                {
                     return Ok(meal);
+                }
 
                 return NotFound(id);
             }
@@ -71,7 +75,9 @@ namespace Meals.API.Controllers
             try
             {
                 if (item == null)
+                {
                     return BadRequest(item);
+                }
 
                 var meal = await _mealDataModel.InsertAsync(item).ConfigureAwait(true);
                 return CreatedAtAction(nameof(AddMeal), new { id = meal.Id }, meal);
@@ -91,7 +97,9 @@ namespace Meals.API.Controllers
             try
             {
                 if (id < 1 || item == null)
+                {
                     return BadRequest(id);
+                }
 
                 var meal = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
                 if (meal != null)
@@ -117,7 +125,9 @@ namespace Meals.API.Controllers
             try
             {
                 if (id < 1)
+                {
                     return BadRequest(id);
+                }
 
                 var item = await _mealDataModel.FindAsync(id).ConfigureAwait(true);
                 if (item != null)
